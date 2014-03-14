@@ -28,6 +28,15 @@ int main() {
 	//s.numer = 2;
 	//s.denom = 4;
 	s.print();
+	// q.reduce();
+	// q.denom;
+	Rational q2(9, 15);
+	if (q.equals(q2))
+		cout << "Равни са!\n";
+	else
+		cout << "Не са равни!\n";
+	// !!! cout << getNumerator() << endl;
+
 }
 
 

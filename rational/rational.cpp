@@ -9,8 +9,17 @@
 #include <iostream>
 using namespace std;
 
+void reduce() {
+	cout << "Аз съм функцията reduce()!" << endl;
+}
+
 Rational::Rational() {
 	numer = 0;
+	denom = 1;
+}
+
+Rational::Rational(int n) {
+	numer = n;
 	denom = 1;
 }
 
@@ -18,13 +27,17 @@ Rational::Rational(int n, int d) {
 	numer = n;
 	denom = d;
 	reduce();
+	// ::reduce();
 }
 
-int Rational::getNumerator() const {
-	return numer;
+inline int Rational::getNumerator() const {
+	// Rational const * const this;
+	// !!! Rational q; this = &q;
+	// !!! this->numer = 5;
+	return this->numer;
 }
 
-int Rational::getDenominator() const {
+inline int Rational::getDenominator() const {
 	return denom;
 }
 
@@ -64,4 +77,11 @@ int Rational::gcd(int x, int y) {
 			y -= x;
 	}
 	return x; // == y;
+}
+
+bool Rational::equals(Rational other) const {
+	// Не е грешка!
+	// return numer == other.numer && denom == other.denom;
+	return getNumerator() == other.getNumerator() &&
+		   getDenominator() == other.getDenominator();
 }
