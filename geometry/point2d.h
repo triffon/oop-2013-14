@@ -32,6 +32,4 @@ public:
 	void translate(Point2D);
 };
 
-
-
 #endif /* POINT2D_H_ */

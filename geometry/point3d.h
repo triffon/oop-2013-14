@@ -16,21 +16,22 @@ class Point3D {
 public:
 	// конструктори
 	Point3D(); //
-	Point3D(Point2D, double);
+	Point3D(Point2D, double); //
+	Point3D(double, double, double);
 
 	// селектори
 	Point2D getP() const; //
 	double getZ() const; //
-	double distance() const;
+	double distance() const; //
 	double distance(Point3D) const;
 	void print() const; //
 
 	// мутатори
-	void setP(Point2D);
-	void setZ(double);
-	void translate(Point3D);
-	void reflectZ();
-	void reflect();
+	void setP(Point2D); //
+	void setZ(double); //
+	void translate(Point3D); //
+	void reflectZ(); //
+	void reflect(); //
 };
 
 
