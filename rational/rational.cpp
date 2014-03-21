@@ -13,21 +13,15 @@ void reduce() {
 	cout << "Аз съм функцията reduce()!" << endl;
 }
 
-Rational::Rational() {
-	numer = 0;
-	denom = 1;
-}
-
-Rational::Rational(int n) {
-	numer = n;
-	denom = 1;
-}
-
-Rational::Rational(int n, int d) {
-	numer = n;
-	denom = d;
+Rational::Rational(int n, int d) : numer(n), denom(d) {
 	reduce();
 	// ::reduce();
+}
+
+Rational::Rational(Rational const &r) : numer(r.numer),
+										denom(r.denom) {
+	cout << "Конструктор за копиране: ";
+	r.print();cout << endl;
 }
 
 inline int Rational::getNumerator() const {

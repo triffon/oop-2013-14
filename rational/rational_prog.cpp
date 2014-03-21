@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+void testRational() {
 	//Rational r = Rational();
 	Rational r;
 	//cout << r.numer << ' ' << r.denom << endl;
@@ -39,4 +39,24 @@ int main() {
 
 }
 
+// декларация на функция
+// Rational r2();
 
+void testConstructors() {
+	Rational r1;
+	// !!! Rational r2();
+	Rational r3 = Rational();
+	r1.print();cout << endl;
+	// !!! r2.print();
+	r3.print();cout << endl;
+	Rational r4(1, 2);
+	Rational r5(5);
+	Rational r6 = r4;
+	r6.print();
+}
+
+int main() {
+	// testRational();
+	testConstructors();
+	return 0;
+}

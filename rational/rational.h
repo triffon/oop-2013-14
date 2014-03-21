@@ -18,9 +18,10 @@ private:
 
 public:
 	// конструктори
-	Rational();
-	Rational(int);
-	Rational(int, int);
+	//Rational();
+	//Rational(int);
+	Rational(int = 0, int = 1);
+	Rational(Rational const&);
 
 	// селектори
 	int getNumerator() const;
