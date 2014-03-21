@@ -9,13 +9,21 @@
 using namespace std;
 
 #include "stack.h"
+#include "rstack.h"
+#include "lstack.h"
+
+typedef LinkedStack MyStack;
 
 void testStack() {
 	MyStack s;
 	for(int i = 1; i <= 100; i++)
 		s.push(i);
+	MyStack s2 = s;
 	while (!s.empty())
 		cout << s.pop() << endl;
+	while (!s2.empty())
+		cout << s2.pop() << endl;
+	cout << "Живи сме!\n";
 }
 
 bool checkParentheses() {
