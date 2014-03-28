@@ -6,6 +6,7 @@
  */
 
 #include "rational.h"
+#include "rational_point.h"
 #include <iostream>
 using namespace std;
 
@@ -82,8 +83,16 @@ void testConstructors() {
 	r7.print();cout << endl;
 }
 
+void testRationalPoint() {
+	RationalPoint p;
+	Rational r1(1, 3);
+	Rational r2(2, 5);
+	RationalPoint q(r1, r2);
+}
+
 int main() {
 	// testRational();
-	testConstructors();
+	// testConstructors();
+	testRationalPoint();
 	return 0;
 }
