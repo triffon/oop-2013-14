@@ -23,6 +23,9 @@ int main() {
 	s2.print();
 	anonymousPrint(s1);
 	s1.print();
+	Student s3 = 5;
+	// <--> Student s3(5);
+	s3.print();
 	return 0;
 }
 

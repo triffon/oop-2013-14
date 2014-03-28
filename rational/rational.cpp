@@ -14,13 +14,14 @@ void reduce() {
 }
 
 Rational::Rational(int n, int d) : numer(n), denom(d) {
+	cout << "Конструктор Rational с параметри: " << n << ',' << d << endl;
 	reduce();
 	// ::reduce();
 }
 
 Rational::Rational(Rational const &r) : numer(r.numer),
 										denom(r.denom) {
-	cout << "Конструктор за копиране: ";
+	cout << "Конструктор за копиране Rational: ";
 	r.print();cout << endl;
 }
 
@@ -105,4 +106,8 @@ bool Rational::equals(Rational other) const {
 	// return numer == other.numer && denom == other.denom;
 	return getNumerator() == other.getNumerator() &&
 		   getDenominator() == other.getDenominator();
+}
+
+Rational::Rational(double x) : numer(x * 10000), denom(10000) {
+	reduce();
 }

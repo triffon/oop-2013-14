@@ -22,6 +22,7 @@ public:
 	//Rational(int);
 	Rational(int = 0, int = 1);
 	Rational(Rational const&);
+	Rational(double);
 
 	// селектори
 	int getNumerator() const;

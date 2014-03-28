@@ -42,6 +42,11 @@ void testRational() {
 // декларация на функция
 // Rational r2();
 
+Rational round(Rational r) {
+	int wholePart = r.getNumerator() / r.getDenominator();
+	return wholePart; // ↔ return Rational(wholePart);
+}
+
 void testConstructors() {
 	Rational r1;
 	// !!! Rational r2();
@@ -68,6 +73,13 @@ void testConstructors() {
 	// !!!result->print();cout << endl;
 	r5.print();cout << endl;
 	r6.print();cout << endl;
+
+	add(3, Rational(2, 3)).print();cout << endl;
+	// ↔ add(Rational(3), Rational(2, 3)).print();
+	round(add(r4,r5)).print();cout << endl;
+
+	Rational r7 = 1.25;
+	r7.print();cout << endl;
 }
 
 int main() {
