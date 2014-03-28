@@ -13,7 +13,13 @@ using namespace std;
 
 Student::Student(int _fn, char const* _name, double _grade)
 				  : fn(_fn), grade(_grade) {
-	setName(_name);
+	name = new char[strlen(_name) + 1];
+	strcpy(name, _name);
+}
+
+Student::Student(Student const& s) : fn(s.fn), grade(s.grade) {
+	name = new char[strlen(s.name) + 1];
+	strcpy(name, s.name);
 }
 
 void Student::print() const {
@@ -21,7 +27,8 @@ void Student::print() const {
 }
 
 void Student::setName(char const* _name) {
-	strncpy(name, _name, MAX_NAME);
-	name[MAX_NAME - 1] = '\0'; // В случай на препълване
+	delete[] name;
+	name = new char[strlen(_name) + 1];
+	strcpy(name, _name);
 }
 

@@ -8,16 +8,15 @@
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
-const int MAX_NAME = 200;
-
 class Student {
 	int fn;
-	char name[MAX_NAME];
+	char* name;
 	double grade;
 public:
 
 	// конструктори
 	Student(int = 0, char const* = "", double = 0);
+	Student(Student const&);
 
 	// селектори
 	int getFN() const { return fn; }
