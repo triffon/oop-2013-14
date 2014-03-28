@@ -15,6 +15,14 @@ ResizingStack::ResizingStack() {
 	capacity = INIT_CAPACITY;
 }
 
+ResizingStack::ResizingStack(ResizingStack const& rs) :
+		top(rs.top), capacity(rs.capacity) {
+	a = new int[capacity];
+	// прехвърляме елементите
+	for(int i = 0; i <= top; i++)
+		a[i] = rs.a[i];
+}
+
 bool ResizingStack::empty() const {
 	return top == -1;
 }

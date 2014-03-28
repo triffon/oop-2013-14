@@ -13,6 +13,40 @@ LinkedStack::LinkedStack() {
 	top = NULL;
 }
 
+LinkedStack::LinkedStack(LinkedStack const& ls) {
+	/* !!! неправилно !!!
+	top = NULL;
+	while(!ls.empty())
+		push(ls.pop());
+		*/
+	if (ls.empty())
+		top = NULL;
+	else {
+		// първа стъпка
+		top = new StackElement;
+		top->data = ls.top->data;
+
+		// подготовка за втората стъпка
+		StackElement* toCopy = ls.top->next;
+		StackElement* lastCopy = top;
+
+		while (toCopy != NULL) {
+			// копиране
+			StackElement* newCopy = new StackElement;
+			newCopy->data = toCopy->data;
+
+			// завързване
+			lastCopy->next = newCopy;
+
+			// подготовка за следващата стъпка
+			toCopy = toCopy->next;
+			lastCopy = newCopy;
+		}
+		// затваряме веригата
+		lastCopy->next = NULL;
+	}
+}
+
 bool LinkedStack::empty() const {
 	return top == NULL;
 }

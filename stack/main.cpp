@@ -16,11 +16,16 @@ typedef LinkedStack MyStack;
 
 void testStack() {
 	MyStack s;
-	for(int i = 1; i <= 100; i++)
+	for(int i = 1; i <= 10; i++)
 		s.push(i);
 	MyStack s2 = s;
+	cout << "s:\n";
 	while (!s.empty())
 		cout << s.pop() << endl;
+	MyStack s3 = s;
+	for(int i = 11; i <= 20; i++)
+			s.push(i);
+	cout << "s2:\n";
 	while (!s2.empty())
 		cout << s2.pop() << endl;
 	cout << "Живи сме!\n";

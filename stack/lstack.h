@@ -23,6 +23,7 @@ private:
 public:
 
 	LinkedStack(); // create
+	LinkedStack(LinkedStack const&);
 
 	// проверка дали стек е празен
 	bool empty() const;

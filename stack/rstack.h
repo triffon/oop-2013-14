@@ -19,6 +19,7 @@ private:
 public:
 
 	ResizingStack(); // create
+	ResizingStack(ResizingStack const&);
 
 	// проверка дали стек е празен
 	bool empty() const;
