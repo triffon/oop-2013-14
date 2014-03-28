@@ -46,6 +46,9 @@ private:
 
 // аритметични операции
 Rational add(Rational, Rational);
+// !!! Rational* add_pointers(Rational const*, Rational const*);
+Rational add_pointers(Rational const*, Rational const*);
+Rational add_ref(Rational const&, Rational const&);
 
 
 #endif /* RATIONAL_H_ */

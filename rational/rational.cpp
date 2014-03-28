@@ -51,6 +51,33 @@ Rational add(Rational p, Rational q) {
 	int rN = p.getNumerator() * q.getDenominator() +
 			 q.getNumerator() * p.getDenominator();
 	int rD = p.getDenominator() * q.getDenominator();
+	p.invert();
+	q.invert();
+	Rational r(rN, rD);
+	return r;
+}
+
+// !!! Rational* add_pointers(Rational const* p, Rational const* q) {
+Rational add_pointers(Rational const* p, Rational const* q) {
+	int rN = p->getNumerator() * q->getDenominator() +
+			 q->getNumerator() * p->getDenominator();
+	int rD = p->getDenominator() * q->getDenominator();
+	// не можем да викаме мутатори
+	// !!! p->invert();
+	// !!! q->invert();
+	// !!! return new Rational(rN, rD);
+	Rational r(rN, rD);
+	// !!! return & r;
+	return r;
+}
+
+Rational add_ref(Rational const& p, Rational const& q) {
+	int rN = p.getNumerator() * q.getDenominator() +
+			 q.getNumerator() * p.getDenominator();
+	int rD = p.getDenominator() * q.getDenominator();
+	// не можем да викаме мутатори
+	// !!! p.invert();
+	// !!! q.invert();
 	Rational r(rN, rD);
 	return r;
 }

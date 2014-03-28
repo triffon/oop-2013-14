@@ -52,7 +52,22 @@ void testConstructors() {
 	Rational r4(1, 2);
 	Rational r5(5);
 	Rational r6 = r4;
-	r6.print();
+	r6.print();cout << endl;
+	cout << "По стойност:\n";
+	add(r5, r6).print();cout << endl;
+	// !!! Rational* result = add_pointers(&r5, &r6);
+	// !!! cout << "Новият резултат е: ";
+	cout << "По указател:\n";
+	add_pointers(&r5, &r6).print(); cout << endl;
+	cout << "По псевдоним:\n";
+	add_ref(r5, r6).print();cout << endl;
+	// !!! Rational& result = add_ref(r5, r6);
+	// !!! add(r5, r5);
+	// !!! result.print();cout << endl;
+	// !!! cout << "Предният резултат е: ";
+	// !!!result->print();cout << endl;
+	r5.print();cout << endl;
+	r6.print();cout << endl;
 }
 
 int main() {
