@@ -15,6 +15,7 @@ class RationalPoint {
 public:
 	RationalPoint();
 	RationalPoint(Rational const&, Rational const&);
+	RationalPoint(RationalPoint const&);
 };
 
 

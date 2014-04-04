@@ -18,6 +18,12 @@ RationalPoint::RationalPoint(Rational const& _x, Rational const& _y)
 	: x(_x), y(_y) {
 	cout << "Конструктор RationalPoint с параметри: ";
 	_x.print(); cout << " , "; _y.print(); cout << endl;
-	// !!!x = _x;
+	// !!! x = _x;
 	// !!! y = _y;
+}
+
+RationalPoint::RationalPoint(const RationalPoint& rp) :
+// често се забравя!
+	x(rp.x), y(rp.y) {
+	cout << "Конструктор за копиране на RationalPoint\n";
 }
