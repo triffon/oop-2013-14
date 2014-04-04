@@ -33,6 +33,6 @@ void Student::setName(char const* _name) {
 }
 
 Student::~Student() {
-	// cout << "Деструктор на Student\n";
+	cout << "Деструктор на Student\n";
 	delete[] name;
 }

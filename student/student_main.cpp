@@ -26,6 +26,11 @@ int main() {
 	Student s3 = 5;
 	// <--> Student s3(5);
 	s3.print();
+
+	Student* a = new Student[3];
+	/// !!! delete[] е задължителен!
+	delete[] a;
+
 	return 0;
 }
 
