@@ -88,11 +88,20 @@ void testRationalPoint() {
 	Rational r1(1, 3);
 	Rational r2(2, 5);
 	RationalPoint q(r1, r2);
+	RationalPoint q2 = q;
+}
+
+void testRationalArrays() {
+	Rational p(1,3), q(3, 5);
+	Rational a[6] = { Rational(),
+			          Rational(5, 7),
+			          p, Rational(q), 1 };
 }
 
 int main() {
 	// testRational();
 	// testConstructors();
-	testRationalPoint();
+	// testRationalPoint();
+	testRationalArrays();
 	return 0;
 }
