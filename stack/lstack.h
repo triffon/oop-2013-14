@@ -36,6 +36,9 @@ public:
 
 	// връщане на върха на стека
 	int last() const;
+
+	// деструктор
+	~LinkedStack();
 };
 
 

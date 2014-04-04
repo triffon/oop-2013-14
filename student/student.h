@@ -28,6 +28,9 @@ public:
 	void setFN(int _fn) { fn = _fn; }
 	void setGrade(double _grade) { grade = _grade; }
 	void setName(char const*);
+
+	// деструктор
+	~Student();
 };
 
 

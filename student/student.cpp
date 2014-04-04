@@ -32,3 +32,7 @@ void Student::setName(char const* _name) {
 	strcpy(name, _name);
 }
 
+Student::~Student() {
+	// cout << "Деструктор на Student\n";
+	delete[] name;
+}

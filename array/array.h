@@ -68,6 +68,10 @@ public:
 			d[i] = x;
 	}
 
+	~Array() {
+		delete[] d;
+	}
+
 private:
 	void copy(double const* _d) {
 		for(int i = 0; i < n; i++)

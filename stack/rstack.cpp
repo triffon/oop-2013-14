@@ -64,3 +64,7 @@ void ResizingStack::resize() {
 
 	a = newa;
 }
+
+ResizingStack::~ResizingStack() {
+	delete[] a;
+}

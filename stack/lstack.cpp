@@ -75,3 +75,10 @@ int LinkedStack::pop() {
 	delete el;
 	return x;
 }
+
+LinkedStack::~LinkedStack() {
+	// !!! delete top; // не е достатъчно!
+	while (!empty())
+		pop();
+	// за домашно: директна реализация
+}

@@ -33,6 +33,9 @@ public:
 	// връщане на върха на стека
 	int last() const;
 
+	// деструктор
+	~ResizingStack();
+
 private:
 	// проверка дали стек е пълен
 	bool full() const;
