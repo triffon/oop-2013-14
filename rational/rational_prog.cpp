@@ -103,10 +103,20 @@ void testRationalArrays() {
 			*c = new Rational[5];
 }
 
+bool operator==(Rational const& r1, Rational const& r2) {
+	return r1.getNumerator() == r2.getNumerator() &&
+		   r1.getDenominator() == r2.getDenominator();
+}
+
+void testOperators() {
+	cout << (Rational(1,2) == Rational(2,4)) << endl;
+}
+
 int main() {
 	// testRational();
 	// testConstructors();
 	// testRationalPoint();
-	testRationalArrays();
+	// testRationalArrays();
+	testOperators();
 	return 0;
 }
