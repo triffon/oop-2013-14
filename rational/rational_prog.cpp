@@ -93,9 +93,14 @@ void testRationalPoint() {
 
 void testRationalArrays() {
 	Rational p(1,3), q(3, 5);
-	Rational a[6] = { Rational(),
+	// 12 или 8 конструктора, в зависимост дали има
+	// -fno-elide-constructors
+	Rational d[6] = { Rational(),
 			          Rational(5, 7),
 			          p, Rational(q), 1 };
+	// 7 конструктора
+	Rational *a = new Rational, *b = new Rational(3, 4),
+			*c = new Rational[5];
 }
 
 int main() {
