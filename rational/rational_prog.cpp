@@ -108,8 +108,24 @@ bool operator==(Rational const& r1, Rational const& r2) {
 		   r1.getDenominator() == r2.getDenominator();
 }
 
+int plus1(int x) {
+	return x + Rational(7,5);
+}
+
 void testOperators() {
 	cout << (Rational(1,2) == Rational(2,4)) << endl;
+	Rational r(2, 3),p;
+	cout << 2 + r << endl;
+	cin >> p >> r;
+	cout << p << ' ' << r << endl;
+	p = r;
+	cout << p << ' ' << r << endl;
+	p = 3;
+	cout << p << endl;
+	p = p + Rational(1,2);
+	int x = p;
+	cout << x << endl;
+	cout << plus1(p) << endl;
 }
 
 int main() {
