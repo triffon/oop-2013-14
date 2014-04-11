@@ -15,8 +15,13 @@ ResizingStack::ResizingStack() {
 	capacity = INIT_CAPACITY;
 }
 
-ResizingStack::ResizingStack(ResizingStack const& rs) :
-		top(rs.top), capacity(rs.capacity) {
+ResizingStack::ResizingStack(ResizingStack const& rs) {
+	copy(rs);
+}
+
+void ResizingStack::copy(ResizingStack const& rs) {
+	top = rs.top;
+	capacity = rs.capacity;
 	a = new int[capacity];
 	// прехвърляме елементите
 	for(int i = 0; i <= top; i++)
@@ -66,5 +71,17 @@ void ResizingStack::resize() {
 }
 
 ResizingStack::~ResizingStack() {
+	clean();
+}
+
+void ResizingStack::clean() {
 	delete[] a;
+}
+
+ResizingStack& ResizingStack::operator=(ResizingStack const& rs) {
+	if (this != &rs) {
+		clean();
+		copy(rs);
+	}
+	return *this;
 }

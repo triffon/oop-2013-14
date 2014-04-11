@@ -22,7 +22,8 @@ void testStack() {
 	cout << "s:\n";
 	while (!s.empty())
 		cout << s.pop() << endl;
-	MyStack s3 = s;
+	MyStack s3;
+	s3 = s;
 	for(int i = 11; i <= 20; i++)
 			s.push(i);
 	cout << "s2:\n";

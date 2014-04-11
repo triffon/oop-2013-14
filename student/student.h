@@ -31,6 +31,9 @@ public:
 
 	// деструктор
 	~Student();
+
+	// операция за присвояване
+	Student& operator=(Student const&);
 };
 
 

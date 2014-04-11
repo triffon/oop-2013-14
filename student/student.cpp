@@ -36,3 +36,15 @@ Student::~Student() {
 	cout << "Деструктор на Student\n";
 	delete[] name;
 }
+
+Student& Student::operator=(Student const& s) {
+	cout << "Student::operator=\n";
+	if (this != &s) {
+		delete[] name;
+		fn = s.fn;
+		grade = s.grade;
+		name = new char[strlen(s.name) + 1];
+		strcpy(name, s.name);
+	}
+	return *this;
+}

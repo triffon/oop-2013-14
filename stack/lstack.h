@@ -39,6 +39,17 @@ public:
 
 	// деструктор
 	~LinkedStack();
+
+	// операция за присвояване
+	LinkedStack& operator=(LinkedStack const&);
+
+private:
+
+	// копиране
+	void copy(LinkedStack const&);
+
+	// изчистване
+	void clean();
 };
 
 

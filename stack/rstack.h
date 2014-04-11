@@ -36,12 +36,21 @@ public:
 	// деструктор
 	~ResizingStack();
 
+	// операция за присвояване
+	ResizingStack& operator=(ResizingStack const&);
+
 private:
 	// проверка дали стек е пълен
 	bool full() const;
 
 	// разширяване на капацитета
 	void resize();
+
+	// копиране
+	void copy(ResizingStack const&);
+
+	// изчистване
+	void clean();
 };
 
 

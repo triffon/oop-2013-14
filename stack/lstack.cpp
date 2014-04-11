@@ -14,6 +14,10 @@ LinkedStack::LinkedStack() {
 }
 
 LinkedStack::LinkedStack(LinkedStack const& ls) {
+	copy(ls);
+}
+
+void LinkedStack::copy(LinkedStack const& ls) {
 	/* !!! неправилно !!!
 	top = NULL;
 	while(!ls.empty())
@@ -77,8 +81,20 @@ int LinkedStack::pop() {
 }
 
 LinkedStack::~LinkedStack() {
+	clean();
+}
+
+void LinkedStack::clean() {
 	// !!! delete top; // не е достатъчно!
 	while (!empty())
 		pop();
 	// за домашно: директна реализация
+}
+
+LinkedStack& LinkedStack::operator =(LinkedStack const& ls) {
+	if (this != &ls) {
+		clean();
+		copy(ls);
+	}
+	return *this;
 }

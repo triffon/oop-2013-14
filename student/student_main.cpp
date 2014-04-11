@@ -17,7 +17,9 @@ void anonymousPrint(Student s) {
 
 int main() {
 	Student s1(40000, "Надя Петрова", 4.5);
-	Student s2 = s1;
+	Student s2;
+	s2 = s1;
+	// s1 = s1;
 	s2.setName("Надя Иванова");
 	s1.print();
 	s2.print();
