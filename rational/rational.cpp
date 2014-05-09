@@ -127,7 +127,7 @@ Rational Rational::operator+(Rational const& r) const {
 }
 
 Rational Rational::operator-() const {
-	return Rational(-numer, -denom);
+	return Rational(-numer, denom);
 }
 
 Rational Rational::operator-(Rational const& r) const {
