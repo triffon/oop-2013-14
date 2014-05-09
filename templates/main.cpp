@@ -8,6 +8,8 @@
 #include <iostream>
 using namespace std;
 
+#include "point2d.cpp"
+
 template <typename T>
 void swap2(T& a, T& b) {
   cout << "Шаблон\n";
@@ -32,7 +34,7 @@ void f(T x) {
 	cout << x % 5;
 }
 
-int main() {
+void testTemplates() {
 	int x = 3, y = 5;
 	//swap2<int>(x, y);
 	swap2(x, y);
@@ -43,6 +45,24 @@ int main() {
 	cout << x << ' ' << y << endl;
 	cout << *px << ' ' << *py << endl;
 //	f(3.5);
+}
+
+void testPoint() {
+	Point2D<int> p(1,5);
+	Point2D<double> q(2.3,3.4);
+	Point2D<char> r('a','b');
+	p.print();
+	q.print();
+	r.print();
+	Point2D<Point2D<double> > s(q, q);
+	s.print();
+}
+
+int main() {
+
+	// testTemplates();
+	testPoint();
+
 	return 0;
 }
 
