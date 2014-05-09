@@ -9,6 +9,7 @@
 using namespace std;
 
 #include "point2d.cpp"
+#include "rational.h"
 
 template <typename T>
 void swap2(T& a, T& b) {
@@ -47,6 +48,11 @@ void testTemplates() {
 //	f(3.5);
 }
 
+template <>
+double Point2D<Rational>::distance() const {
+	return sqrt((double)(getX()*getX() + getY()*getY()));
+}
+
 void testPoint() {
 	Point2D<int> p(1,5);
 	Point2D<double> q(2.3,3.4);
@@ -56,6 +62,9 @@ void testPoint() {
 	r.print();
 	Point2D<Point2D<double> > s(q, q);
 	s.print();
+	Point2D<Rational> a(Rational(3,5), Rational(4,5));
+	a.print();cout << endl;
+	cout << a.distance() << endl;
 }
 
 int main() {
