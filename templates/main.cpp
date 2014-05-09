@@ -10,6 +10,7 @@ using namespace std;
 
 #include "point2d.cpp"
 #include "rational.h"
+#include "lstack.cpp"
 
 template <typename T>
 void swap2(T& a, T& b) {
@@ -53,6 +54,35 @@ double Point2D<Rational>::distance() const {
 	return sqrt((double)(getX()*getX() + getY()*getY()));
 }
 
+typedef LinkedStack<int> MyStack;
+
+void testStack() {
+	MyStack s;
+	for(int i = 1; i <= 10; i++)
+		s.push(i);
+	MyStack s2 = s;
+	cout << "s:\n";
+	while (!s.empty())
+		cout << s.pop() << endl;
+	MyStack s3;
+	s3 = s;
+	for(int i = 11; i <= 20; i++)
+			s.push(i);
+	cout << "s2:\n";
+	while (!s2.empty())
+		cout << s2.pop() << endl;
+	cout << "Живи сме!\n";
+}
+
+void testPointStack() {
+	LinkedStack<Point2D<int> > s;
+	s.push(Point2D<int>(1, 2));
+	s.push(Point2D<int>(2, 3));
+	s.push(Point2D<int>(3, 4));
+	while (!s.empty())
+		cout << s.pop();
+}
+
 void testPoint() {
 	Point2D<int> p(1,5);
 	Point2D<double> q(2.3,3.4);
@@ -67,10 +97,35 @@ void testPoint() {
 	cout << a.distance() << endl;
 }
 
+template <typename T>
+ostream& operator<<(ostream& os, LinkedStack<T> s) {
+	while (!s.empty()) {
+		os << '[' << s.pop() << ']';
+	}
+	os << endl;
+	return os;
+}
+
+void testStackStack() {
+	LinkedStack<LinkedStack<Rational> > ss;
+	for(int i = 1; i <= 10; i++) {
+		LinkedStack<Rational> s;
+		for(int j = 1; j <= 10; j++) {
+			Rational r(i * j, (i+1)*(j+1));
+			s.push(r);
+		}
+		ss.push(s);
+	}
+	cerr << ss;
+}
+
 int main() {
 
 	// testTemplates();
-	testPoint();
+	// testPoint();
+	// testStack();
+	// testPointStack();
+	testStackStack();
 
 	return 0;
 }
