@@ -29,6 +29,8 @@ public:
 
 	// собствено извеждане
 	void print(ostream& os = cout) const;
+
+	~Student();
 };
 
 #endif /* STUDENT_H_ */

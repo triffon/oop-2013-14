@@ -12,7 +12,7 @@ Student::Student(char const* _name,
 				 int _fn,
 				 double _grade)
 	: Person(_name, _id), fn(_fn), grade(_grade)
-{}
+{ cerr << "Student(...)" << endl; }
 
 void Student::print(ostream& os) const {
 	// !!! print(os);
@@ -20,4 +20,8 @@ void Student::print(ostream& os) const {
 //	cout << "Името отново: " << getName() << endl;
 	cout << "Ф№: " << fn << endl;
 	cout << "Успех: " << grade << endl;
+}
+
+Student::~Student() {
+	cerr << "~Student()" << endl;
 }

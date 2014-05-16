@@ -10,6 +10,7 @@
 
 Person::Person(char const* _name, char const* _id)
 	: name(NULL) {
+	cerr << "Person(...)" << endl;
 	setName(_name);
 	setID(_id);
 }
@@ -37,6 +38,7 @@ void Person::clean() {
 }
 
 Person::Person(Person const& p) : name(NULL) {
+	cerr << "Person(Person const&)" << endl;
 	copy(p);
 }
 
@@ -49,6 +51,7 @@ Person& Person::operator=(Person const& p) {
 }
 
 Person::~Person() {
+	cerr << "~Person()" << endl;
 	clean();
 }
 
