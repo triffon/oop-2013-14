@@ -18,9 +18,26 @@ int main() {
 
 	Student s("Мария Георгиева", "1234567890", 44444, 5.5);
 	s.setName("Пенка Георгиева");
+	cout << s.getName() << endl;
 	cout << s.getFN() << endl;
 	s.print();
 
+	Person p2 = s;
+	p2.print();
+
+	Person* pp = &s;
+	cout << &s << ' ' << pp << endl;
+
+	// !!!
+	Student s2 = (Student const&)p;
+	// !!! Student s2 = (Student)p;
+	s2.print();
+
+	// !!! Person p3 = s;
+	Person& p3 = s;
+
+	Student s3 = (Student const&)p3;
+	s3.print();
 }
 
 
