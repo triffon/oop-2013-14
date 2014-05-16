@@ -8,7 +8,14 @@
 #include <iostream>
 using namespace std;
 
-#include "student.h"
+#include "paid_student.h"
+
+void paidStudentTest() {
+	PaidStudent ps1, ps2("Тодор Тодоров", "9876543210", 50000, 4.25, 10000, "ФМИ"),
+			    ps3 = ps2;
+	ps1 = ps3;
+
+}
 
 int main() {
 	Person p("Иван Иванов", "8311100123");
@@ -38,6 +45,14 @@ int main() {
 
 	Student s3 = (Student const&)p3;
 	s3.print();
+
+	cerr << "======================" << endl;
+
+	paidStudentTest();
+
+	cerr << "======================" << endl;
+
+
 }
 
 
