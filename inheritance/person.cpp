@@ -36,7 +36,7 @@ void Person::clean() {
 		delete[] name;
 }
 
-Person::Person(Person const& p) {
+Person::Person(Person const& p) : name(NULL) {
 	copy(p);
 }
 
