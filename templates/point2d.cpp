@@ -107,6 +107,7 @@ void Point2D<T>::print(ostream& os) const {
 template <typename T>
 ostream& operator<<(ostream& os, Point2D<T> const& p) {
 	p.print(os);
+	return os;
 }
 
 template <typename T>
