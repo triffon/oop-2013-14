@@ -17,7 +17,8 @@ void paidStudentTest() {
 
 }
 
-int main() {
+/*
+void personStudentTest() {
 	Person p("Иван Иванов", "8311100123");
 	p.setName("Петър Петров");
 	cout << p.getID() << endl;
@@ -45,6 +46,12 @@ int main() {
 
 	Student s3 = (Student const&)p3;
 	s3.print();
+}
+*/
+
+int main() {
+
+	// personStudentTest();
 
 	cerr << "======================" << endl;
 

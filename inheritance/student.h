@@ -10,7 +10,7 @@
 
 #include "person.h"
 
-class Student : public Person {
+class Student /*: public Person */{
 	int fn;
 	double grade;
 public:
