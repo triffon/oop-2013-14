@@ -8,15 +8,18 @@
 #include <cstring>
 #include "employee.h"
 
-Employee::Employee(char const* _position,
+Employee::Employee(char const* _name,
+		           char const* _id,
+		           char const* _position,
 					double _salary)
-		: salary(_salary),
+		: Person(_name, _id),
+		  salary(_salary),
 		  position(NULL) {
 	cerr << "Employee(...)" << endl;
 	setPosition(_position);
 }
 
-Employee::Employee(Employee const& e) {
+Employee::Employee(Employee const& e) : Person(e) {
 	cerr << "Employee(Employee const&)" << endl;
 	copy(e);
 }
@@ -24,6 +27,7 @@ Employee::Employee(Employee const& e) {
 Employee& Employee::operator=(Employee const& e) {
 	cerr << "operator=(Employee const&)" << endl;
 	if (this != &e) {
+		Person::operator=(e);
 		clean();
 		copy(e);
 	}
@@ -43,6 +47,7 @@ void Employee::setPosition(char const* _position) {
 }
 
 void Employee::print(ostream& os) const {
+	Person::print();
 	os << "Позиция: " << position << endl;
 	os << "Заплата: " << salary << " лв." << endl;
 }

@@ -7,12 +7,14 @@
 
 #include "intern.h"
 
-Intern::Intern(int _fn, double _grade,
+Intern::Intern(char const* _name,
+			   char const* _id,
+			   int _fn, double _grade,
 			   char const* _position,
 			   double _salary,
 			   int _period)
-  : Student("", "", _fn, _grade),
-    Employee(_position, _salary),
+  : Student(_name, _id, _fn, _grade),
+    Employee(_name, _id, _position, _salary),
     period(_period) {
 	cerr << "Intern(...)" << endl;
 }

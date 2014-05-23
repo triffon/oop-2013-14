@@ -16,7 +16,8 @@ class Intern : public Student, public Employee {
 public:
 
 	// конструктори
-	Intern(int = 0, double = 0, char const* = "", double = 0, int = 0);
+	Intern(char const* = "", char const* = "",
+		int = 0, double = 0, char const* = "", double = 0, int = 0);
 
 	// селектори
 	int getPeriod() const { return period; }

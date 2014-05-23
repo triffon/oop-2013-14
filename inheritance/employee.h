@@ -11,13 +11,15 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
+#include "person.h"
+
+class Employee : public Person {
 	char* position;
 	double salary;
 public:
 
 	// конструктори и голяма 4
-	Employee(char const* = "", double = 0);
+	Employee(char const* = "", char const* = "", char const* = "", double = 0);
 	Employee(Employee const&);
 	Employee& operator=(Employee const&);
 	~Employee();

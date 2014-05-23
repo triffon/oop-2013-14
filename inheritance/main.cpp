@@ -52,7 +52,7 @@ void personStudentTest() {
 */
 
 void employeeTest() {
-	Employee e1, e2("Асистент", 300), e3 = e2;
+	Employee e1, e2("Иван Иванов", "XXXX", "Асистент", 300), e3 = e2;
 	e1 = e3;
 	e2.setPosition("Главен асистент");
 	e2.setSalary(400);
@@ -62,7 +62,7 @@ void employeeTest() {
 }
 
 void internTest() {
-	Intern i1, i2(/*"Владимир Начев", "XXXXXXXXXX", */
+	Intern i1, i2("Владимир Начев", "XXXXXXXXXX",
 				  81000, 5.80, "Демонстратор", 150, 4), i3 = i2;
 	i1 = i3;
 	i1.setPeriod(8);
@@ -87,6 +87,13 @@ void internTest() {
 
 	cout << "(Student&)i1 > i2? " << ((Student&)i1 > i2) << endl;
 	cout << "(Employee&)i1 > i2? " << ((Employee&)i1 > i2) << endl;
+
+	// !!! cout << i1.getName();
+	cout << ((Employee&)i1).getName() << endl;
+	cout << ((Student&)i1).getName() << endl;
+
+	Person p11 = (Person&)(Employee&)i1;
+	Person p12 = (Person&)(Student&)i1;
 
 }
 
