@@ -16,6 +16,7 @@ Person::Person(char const* _name, char const* _id)
 }
 
 void Person::copy(Person const& p) {
+	name = NULL;
 	setName(p.name);
 	setID(p.id);
 }
@@ -43,6 +44,7 @@ Person::Person(Person const& p) : name(NULL) {
 }
 
 Person& Person::operator=(Person const& p) {
+	cerr << "operator=(Person const&)" << endl;
 	if (this != &p) {
 		clean();
 		copy(p);

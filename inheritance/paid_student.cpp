@@ -62,6 +62,7 @@ void PaidStudent::setSponsor(char const* _sponsor) {
 
 void PaidStudent::copy(PaidStudent const& ps) {
 	// !!! Person::copy(ps);
+	sponsor = NULL;
 	setFee(ps.fee);
 	setSponsor(ps.sponsor);
 }
