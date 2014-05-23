@@ -9,6 +9,7 @@
 using namespace std;
 
 #include "paid_student.h"
+#include "employee.h"
 
 void paidStudentTest() {
 	PaidStudent ps1, ps2("Тодор Тодоров", "9876543210", 50000, 4.25, 10000, "ФМИ"),
@@ -49,6 +50,16 @@ void personStudentTest() {
 }
 */
 
+void employeeTest() {
+	Employee e1, e2("Асистент", 300), e3 = e2;
+	e1 = e3;
+	e2.setPosition("Главен асистент");
+	e2.setSalary(400);
+	e1.print();
+	e2.print();
+	e3.print();
+}
+
 int main() {
 
 	// personStudentTest();
@@ -59,6 +70,9 @@ int main() {
 
 	cerr << "======================" << endl;
 
+	employeeTest();
+
+	cerr << "======================" << endl;
 
 }
 
