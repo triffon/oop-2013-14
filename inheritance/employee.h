@@ -31,7 +31,7 @@ public:
 	void setSalary(double _salary) { salary = _salary; }
 
 	// извеждане
-	void print(ostream& = cout);
+	void print(ostream& = cout) const;
 
 private:
 	void clean();

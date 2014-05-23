@@ -41,7 +41,7 @@ void Employee::setPosition(char const* _position) {
 	strcpy(position, _position);
 }
 
-void Employee::print(ostream& os) {
+void Employee::print(ostream& os) const {
 	os << "Позиция: " << position << endl;
 	os << "Заплата: " << salary << " лв." << endl;
 }
