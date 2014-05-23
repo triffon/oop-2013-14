@@ -10,6 +10,7 @@ using namespace std;
 
 #include "paid_student.h"
 #include "employee.h"
+#include "intern.h"
 
 void paidStudentTest() {
 	PaidStudent ps1, ps2("Тодор Тодоров", "9876543210", 50000, 4.25, 10000, "ФМИ"),
@@ -60,6 +61,35 @@ void employeeTest() {
 	e3.print();
 }
 
+void internTest() {
+	Intern i1, i2(/*"Владимир Начев", "XXXXXXXXXX", */
+				  81000, 5.80, "Демонстратор", 150, 4), i3 = i2;
+	i1 = i3;
+	i1.setPeriod(8);
+	i1.setGrade(6);
+	i2.setPosition("Асистент");
+	i2.setSalary(300);
+	i1.print();
+	i2.print();
+	i3.print();
+
+	/// !!! cout << (i1 > i2) << endl;
+
+	Student s1 = i1;
+	Student s2 = i2;
+
+	cout << "s1 > s2? " << (s1 > s2) << endl;
+
+	Employee e1 = i1;
+	Employee e2 = i2;
+
+	cout << "e1 > e2? " << (e1 > e2) << endl;
+
+	cout << "(Student&)i1 > i2? " << ((Student&)i1 > i2) << endl;
+	cout << "(Employee&)i1 > i2? " << ((Employee&)i1 > i2) << endl;
+
+}
+
 int main() {
 
 	// personStudentTest();
@@ -71,6 +101,10 @@ int main() {
 	cerr << "======================" << endl;
 
 	employeeTest();
+
+	cerr << "======================" << endl;
+
+	internTest();
 
 	cerr << "======================" << endl;
 

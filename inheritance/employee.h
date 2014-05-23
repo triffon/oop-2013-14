@@ -33,6 +33,9 @@ public:
 	// извеждане
 	void print(ostream& = cout) const;
 
+	bool operator>(Employee const& e) const
+	{ return salary > e.salary; }
+
 private:
 	void clean();
 	void copy(Employee const&);

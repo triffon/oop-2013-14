@@ -30,6 +30,9 @@ public:
 	// собствено извеждане
 	void print(ostream& os = cout) const;
 
+	bool operator>(Student const& s) const
+	{ return grade > s.grade; }
+
 	~Student();
 };
 

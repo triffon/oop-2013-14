@@ -31,6 +31,7 @@ Employee& Employee::operator=(Employee const& e) {
 }
 
 Employee::~Employee() {
+	cerr << "~Employee()" << endl;
 	clean();
 }
 
