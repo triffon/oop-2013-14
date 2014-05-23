@@ -48,8 +48,7 @@ void Employee::setPosition(char const* _position) {
 
 void Employee::print(ostream& os) const {
 	Person::print();
-	os << "Позиция: " << position << endl;
-	os << "Заплата: " << salary << " лв." << endl;
+	os << *this;
 }
 
 void Employee::clean() {
@@ -63,3 +62,9 @@ void Employee::copy(Employee const& e) {
 	setSalary(e.salary);
 }
 
+
+ostream& operator<<(ostream& os, Employee const& e) {
+	os << "Позиция: " << e.getPosition() << endl;
+	os << "Заплата: " << e.getSalary() << " лв." << endl;
+	return os;
+}

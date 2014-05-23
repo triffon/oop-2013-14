@@ -58,6 +58,11 @@ Person::~Person() {
 }
 
 void Person::print(ostream& os) const {
-	os << "Име: " << name << endl;
-	os << "ЕГН: " << id << endl;
+	os << *this;
+}
+
+ostream& operator<<(ostream& os, Person const& p) {
+	os << "Име: " << p.getName() << endl;
+	os << "ЕГН: " << p.getID() << endl;
+	return os;
 }

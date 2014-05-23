@@ -15,13 +15,16 @@ Student::Student(char const* _name,
 { cerr << "Student(...)" << endl; }
 
 void Student::print(ostream& os) const {
-	// !!! print(os);
 	Person::print(os);
-//	cout << "Името отново: " << getName() << endl;
-	cout << "Ф№: " << fn << endl;
-	cout << "Успех: " << grade << endl;
+	os << *this;
 }
 
 Student::~Student() {
 	cerr << "~Student()" << endl;
+}
+
+ostream& operator<<(ostream& os, Student const& s) {
+	os << "Ф№: " << s.getFN() << endl;
+	os << "Успех: " << s.getGrade() << endl;
+	return os;
 }

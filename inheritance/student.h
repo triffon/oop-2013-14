@@ -10,7 +10,7 @@
 
 #include "person.h"
 
-class Student : public Person {
+class Student : virtual public Person {
 	int fn;
 	double grade;
 public:
@@ -35,5 +35,7 @@ public:
 
 	~Student();
 };
+
+ostream& operator<<(ostream&, Student const&);
 
 #endif /* STUDENT_H_ */

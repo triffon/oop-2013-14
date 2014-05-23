@@ -40,6 +40,6 @@ protected:
 	void setID(char const*);
 };
 
-
+ostream& operator<<(ostream&, Person const&);
 
 #endif /* PERSON_H_ */

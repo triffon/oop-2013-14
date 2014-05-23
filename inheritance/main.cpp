@@ -69,8 +69,11 @@ void internTest() {
 	i1.setGrade(6);
 	i2.setPosition("Асистент");
 	i2.setSalary(300);
+	cout << "i1:\n";
 	i1.print();
+	cout << "i2:\n";
 	i2.print();
+	cout << "i3:\n";
 	i3.print();
 
 	/// !!! cout << (i1 > i2) << endl;
@@ -94,6 +97,9 @@ void internTest() {
 
 	Person p11 = (Person&)(Employee&)i1;
 	Person p12 = (Person&)(Student&)i1;
+
+	cout << i1.getName() << endl;
+	Person p13 = i1;
 
 }
 

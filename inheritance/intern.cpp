@@ -13,15 +13,27 @@ Intern::Intern(char const* _name,
 			   char const* _position,
 			   double _salary,
 			   int _period)
-  : Student(_name, _id, _fn, _grade),
-    Employee(_name, _id, _position, _salary),
+  : Student("", "", _fn, _grade),
+    Employee("", "", _position, _salary),
+    Person(_name, _id),
     period(_period) {
 	cerr << "Intern(...)" << endl;
 }
 
-void Intern::print(ostream& os) const {
-	Student::print(os);
-	Employee::print(os);
-	os << "Период на стажа: " << period << " месеца" << endl;
+Intern::Intern(Intern const& i)
+	: Student(i), Employee(i), period(i.period),
+	  Person(i) {
+	cerr << "Intern(Intern const&)" << endl;
 }
 
+void Intern::print(ostream& os) const {
+	Person::print();
+	os << *this;
+}
+
+ostream& operator<<(ostream& os, Intern const& i) {
+	os << (Student const&)i;
+	os << (Employee const&)i;
+	os << "Период на стажа: " << i.getPeriod() << " месеца" << endl;
+	return os;
+}

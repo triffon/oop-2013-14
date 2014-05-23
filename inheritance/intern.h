@@ -18,6 +18,7 @@ public:
 	// конструктори
 	Intern(char const* = "", char const* = "",
 		int = 0, double = 0, char const* = "", double = 0, int = 0);
+	Intern(Intern const&);
 
 	// селектори
 	int getPeriod() const { return period; }
@@ -30,6 +31,6 @@ public:
 
 };
 
-
+ostream& operator<<(ostream&, Intern const&);
 
 #endif /* INTERN_H_ */

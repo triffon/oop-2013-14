@@ -13,7 +13,7 @@ using namespace std;
 
 #include "person.h"
 
-class Employee : public Person {
+class Employee : virtual public Person {
 	char* position;
 	double salary;
 public:
@@ -44,5 +44,6 @@ private:
 
 };
 
+ostream& operator<<(ostream&, Employee const&);
 
 #endif /* EMPLOYEE_H_ */
