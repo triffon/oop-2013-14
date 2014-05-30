@@ -81,14 +81,41 @@ void bindingTest1() {
 	cin >> c;
 	if (c == 's') pp = new Student;
 	if (c == 'e') pp = new Employee;
+	// ......
+	// ......
 	if (pp != NULL) {
 		if (c == 's') ((Student*)pp)->print(); // Student::print
 		if (c == 'e') ((Employee*)pp)->print(); // Employee::print
 	}
 }
 
+struct SmartPerson {
+  Person* person;
+  enum { PERSON, STUDENT, EMPLOYEE } type;
+  void print() const {
+    if (type == PERSON) person->print();
+    if (type == STUDENT) ((Student const*)person)->print();
+    if (type == EMPLOYEE) ((Employee const*)person)->print();
+  }
+};
+
+void bindingTest2() {
+	SmartPerson pp = { NULL, SmartPerson::PERSON }; char c;
+	cin >> c;
+	if (c == 's') {
+		pp.person = new Student;
+		pp.type = SmartPerson::STUDENT;
+	}
+	if (c == 'e') {
+		pp.person = new Employee;
+		pp.type = SmartPerson::EMPLOYEE;
+	}
+	pp.print();
+	pp.print();
+}
+
 int main() {
-	bindingTest1();
+	bindingTest2();
 	return 0;
 }
 
