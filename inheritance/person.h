@@ -22,7 +22,7 @@ public:
 	Person(char const* ="", char const* ="0");
 	Person(Person const&);
 	Person& operator=(Person const&);
-	~Person();
+	virtual ~Person();
 
 	// селектори
 	char const* getName() const { return name; }

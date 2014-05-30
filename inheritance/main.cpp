@@ -91,6 +91,7 @@ void bindingTest0() {
 		cout << typeid(p).name() << endl;
 		cout << typeid(pp).name() << endl;
 		cout << typeid(*pp).name() << endl;
+		delete pp;
 	}
 	// PaidStudent ps;
 	// !!! ps.print();
