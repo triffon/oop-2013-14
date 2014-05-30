@@ -66,3 +66,10 @@ ostream& operator<<(ostream& os, Person const& p) {
 	os << "ЕГН: " << p.getID() << endl;
 	return os;
 }
+
+void Person::prettyPrint() const {
+  cout << "---------- [ Personal file ] -----------" << endl;
+  // this->print();
+  print();
+  cout << "----------------------------------------" << endl;
+}

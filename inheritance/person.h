@@ -32,7 +32,8 @@ public:
 	void setName(char const*);
 
 	// извеждане
-	void print(ostream& = cout) const;
+	virtual void print(ostream& = cout) const;
+	void prettyPrint() const;
 private:
 	void copy(Person const&);
 	void clean();

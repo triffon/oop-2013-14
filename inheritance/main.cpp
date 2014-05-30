@@ -76,6 +76,22 @@ void tests() {
 
 }
 
+void bindingTest0() {
+	Person* pp = NULL; char c;
+	cin >> c;
+	if (c == 's') pp = new Student;
+	if (c == 'e') pp = new Employee;
+	if (c == 'p') pp = new PaidStudent;
+	if (pp != NULL) {
+		pp->print();
+		Person& p = *pp;
+		p.print();
+		pp->prettyPrint();
+	}
+	// PaidStudent ps;
+	// !!! ps.print();
+}
+
 void bindingTest1() {
 	Person* pp = NULL; char c;
 	cin >> c;
@@ -92,10 +108,10 @@ void bindingTest1() {
 struct SmartPerson {
   Person* person;
   enum { PERSON, STUDENT, EMPLOYEE } type;
-  void print() const {
+  void print() {
     if (type == PERSON) person->print();
-    if (type == STUDENT) ((Student const*)person)->print();
-    if (type == EMPLOYEE) ((Employee const*)person)->print();
+    if (type == STUDENT) ((Student*)person)->print();
+    if (type == EMPLOYEE) ((Employee*)person)->print();
   }
 };
 
@@ -115,7 +131,7 @@ void bindingTest2() {
 }
 
 int main() {
-	bindingTest2();
+	bindingTest0();
 	return 0;
 }
 

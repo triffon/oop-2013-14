@@ -27,13 +27,14 @@ public:
 	// селектори
 	double getFee() const { return fee; }
 	char const* getSponsor() const { return sponsor; }
-	void print(ostream& = cout) const;
 
 	// мутатори
 	void setFee(double);
 	void setSponsor(char const*);
 
 private:
+	void print(ostream& = cout) const;
+
 	// копиране и почистване
 	void copy(PaidStudent const&);
 	void clean();
