@@ -60,7 +60,7 @@ void employeeTest() {
 	e3.print();
 }
 
-int main() {
+void tests() {
 
 	// personStudentTest();
 
@@ -74,6 +74,22 @@ int main() {
 
 	cerr << "======================" << endl;
 
+}
+
+void bindingTest1() {
+	Person* pp = NULL; char c;
+	cin >> c;
+	if (c == 's') pp = new Student;
+	if (c == 'e') pp = new Employee;
+	if (pp != NULL) {
+		if (c == 's') ((Student*)pp)->print(); // Student::print
+		if (c == 'e') ((Employee*)pp)->print(); // Employee::print
+	}
+}
+
+int main() {
+	bindingTest1();
+	return 0;
 }
 
 
