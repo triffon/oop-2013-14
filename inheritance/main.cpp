@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <typeinfo>
 using namespace std;
 
 #include "paid_student.h"
@@ -87,6 +88,9 @@ void bindingTest0() {
 		Person& p = *pp;
 		p.print();
 		pp->prettyPrint();
+		cout << typeid(p).name() << endl;
+		cout << typeid(pp).name() << endl;
+		cout << typeid(*pp).name() << endl;
 	}
 	// PaidStudent ps;
 	// !!! ps.print();
