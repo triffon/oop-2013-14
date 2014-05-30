@@ -10,7 +10,7 @@
 
 #include "person.h"
 
-class Student : virtual public Person {
+class Student : /* virtual */ public Person {
 	int fn;
 	double grade;
 public:

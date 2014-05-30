@@ -13,7 +13,7 @@ using namespace std;
 
 #include "person.h"
 
-class Employee : virtual public Person {
+class Employee : /* virtual */ public Person {
 	char* position;
 	double salary;
 public:
