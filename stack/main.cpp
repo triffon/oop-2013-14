@@ -59,11 +59,31 @@ bool checkParentheses() {
 	return s.empty();
 }
 
+void testAbstractStack() {
+	int const N = 3;
+	AbstractStack* s[N] = { new Stack, new ResizingStack, new LinkedStack };
+	int j = 0;
+	for(int i = 0; i < 40; i++) {
+		s[j]->push(i);
+		++j %= N;
+	}
+
+	for(int i = 0; i < N; i++)
+		s[i]->print();
+
+	for(int i = 0; i < N; i++)
+		delete s[i];
+}
+
 int main() {
-	testStack();
+	/*
+	 *
+	 testStack();
 	if (checkParentheses())
 		cout << "OK!" << endl;
 	else
 		cout << "FAIL!" << endl;
+	*/
+	testAbstractStack();
 	return 0;
 }

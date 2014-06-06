@@ -10,12 +10,15 @@
 #ifndef LSTACK_H_
 #define LSTACK_H_
 
+#include "abstract_stack.h"
+
+
 struct StackElement {
 	int data;
 	StackElement* next;
 };
 
-class LinkedStack {
+class LinkedStack : public AbstractStack {
 private:
 	StackElement* top;
 			  //  самият стек, т.е. указател към

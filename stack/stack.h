@@ -10,9 +10,11 @@
 #ifndef STACK_H_
 #define STACK_H_
 
+#include "abstract_stack.h"
+
 const int MAX_STACK = 100;
 
-class Stack {
+class Stack : public AbstractStack {
 private:
 	int a[MAX_STACK]; // самият стек
 	int top; // индекс на последния включен в стека елемент

@@ -8,9 +8,11 @@
 #ifndef RSTACK_H_
 #define RSTACK_H_
 
+#include "abstract_stack.h"
+
 const int INIT_CAPACITY = 10;
 
-class ResizingStack {
+class ResizingStack : public AbstractStack{
 private:
 	int* a; // самият стек
 	int top; // индекс на последния включен в стека елемент
