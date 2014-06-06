@@ -23,6 +23,8 @@ public:
 	int work(int = 1);
 
 	void print(ostream& = cout) const;
+
+	Cloneable* clone() const { return new QuickTask(*this); }
 };
 
 

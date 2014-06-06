@@ -11,7 +11,7 @@
 #include "abstract_task.h"
 
 class SimpleTask : public AbstractTask {
-private:
+protected:
 	int length, progress;
 public:
 
@@ -25,6 +25,7 @@ public:
 
 	void print(ostream& = cout) const;
 
+	Cloneable* clone() const { return new SimpleTask(*this); }
 };
 
 

@@ -31,6 +31,8 @@ public:
 		return getLength() == getProgress();
 	}
 
+	// !!!! Cloneable* clone() const { return new AbstractTask(*this); }
+
 private:
 	void copy(AbstractTask const&);
 	void clean();
