@@ -26,6 +26,11 @@ public:
 
 	// извеждане
 	void print(ostream& = cout) const;
+
+	bool isFinished() const {
+		return getLength() == getProgress();
+	}
+
 private:
 	void copy(AbstractTask const&);
 	void clean();

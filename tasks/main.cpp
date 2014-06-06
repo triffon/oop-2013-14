@@ -6,6 +6,7 @@
  */
 
 #include "quick_task.h"
+#include "simple_task.h"
 
 void printAll(Task** p, int n) {
 	for(int i = 0; i < n; i++) {
@@ -14,18 +15,28 @@ void printAll(Task** p, int n) {
 	}
 }
 
+void work(Task** tasks, int n) {
+	int i = 0;
+	int t;
+	do {
+		cout << "t? ";
+		cin >> t;
+		tasks[i]->work(t);
+		if (tasks[i]->isFinished())
+			i++;
+		printAll(tasks, n);
+	} while (i < n && t > 0);
+}
+
 int main() {
-	int const N = 3;
-	Task* tasks[N] = { new QuickTask("събуждане"),
+	int const N = 4;
+	Task* tasks[N] = { new SimpleTask("събуждане", 2),
+					new SimpleTask("обличане", 4),
 					new QuickTask("излизане"),
-					new QuickTask("усмивка") };
+					new QuickTask("усмивка")};
 
-	printAll(tasks, N);
 
-	tasks[2]->work();
-	tasks[0]->work();
-
-	printAll(tasks, N);
+	work(tasks, 4);
 
 	return 0;
 }

@@ -13,7 +13,7 @@
 class Task : public Printable {
 public:
 	// дължина на задачата в единици време
-	virtual int length() const = 0;
+	virtual int getLength() const = 0;
 
 	// прогрес на задачата в единици време от началото ѝ
 	virtual int getProgress() const = 0;
@@ -22,6 +22,9 @@ public:
 	// параметър: брой единици време, които се работи по задачата
 	// резултат: оставащи брой единици свободно време
 	virtual int work(int = 1) = 0;
+
+	// завършена ли е задачата?
+	virtual bool isFinished() const = 0;
 
 };
 

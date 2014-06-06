@@ -16,7 +16,7 @@ private:
 public:
 	QuickTask(char const* = "QuickTask");
 
-	int length() const { return 1; }
+	int getLength() const { return 1; }
 
 	int getProgress() const;
 
