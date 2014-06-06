@@ -10,10 +10,11 @@
 
 #include <iostream>
 using namespace std;
+#include "printable.h"
 
 const int EGN_SIZE = 11;
 
-class Person {
+class Person : public Printable {
 	char* name;
 	char id[EGN_SIZE];
 public:

@@ -135,8 +135,30 @@ void bindingTest2() {
 	pp.print();
 }
 
+class HelloWorld : public Printable {
+public:
+	void print(ostream& os) const { os << "Hello, world!\n"; }
+};
+
+void printableTest() {
+	const int N = 5;
+	Printable* a[N] = { new Student, new Person,
+			            new PaidStudent, new Employee, new HelloWorld };
+	for(int i = 0; i < N; i++) {
+		cout << "-----------------------------\n";
+		a[i]->print();
+		cout << "-----------------------------\n";
+	}
+
+	for(int i = 0; i < N; i++) {
+		delete a[i];
+	}
+
+}
+
 int main() {
-	bindingTest0();
+//	bindingTest0();
+	printableTest();
 	return 0;
 }
 
