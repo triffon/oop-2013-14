@@ -7,6 +7,7 @@
 
 #include "quick_task.h"
 #include "simple_task.h"
+#include "repeat_task.h"
 
 void printAll(Task** p, int n) {
 	for(int i = 0; i < n; i++) {
@@ -29,14 +30,15 @@ void work(Task** tasks, int n) {
 }
 
 int main() {
-	int const N = 4;
+	int const N = 5;
 	Task* tasks[N] = { new SimpleTask("събуждане", 2),
 					new SimpleTask("обличане", 4),
 					new QuickTask("излизане"),
+					new RepeatTask("пътуване с ГТ", 2, new SimpleTask("пътуване с автобус", 3)),
 					new QuickTask("усмивка")};
 
 
-	work(tasks, 4);
+	work(tasks, N);
 
 	return 0;
 }
