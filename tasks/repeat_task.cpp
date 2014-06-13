@@ -43,7 +43,8 @@ int RepeatTask::work(int t) {
 	while (t > 0 && !isFinished()) {
 		reset();
 		SimpleTask::work(); // отбелязваме една завършена итерация
-		t = current->work(t);
+		if (!isFinished())
+			t = current->work(t);
 	}
 	// t == 0 || isFinished()
 	if (t == 0 && current->isFinished()) {
