@@ -29,6 +29,30 @@ void RepeatTask::print(ostream& os) const {
 	os << ", като текущата задача е с прогрес " << current->getProgress();
 }
 
+int RepeatTask::getProgress() const {
+	return SimpleTask::getProgress() * prototype->getLength() +
+			 (!isFinished() ? current->getProgress() : 0);
+}
+
 int RepeatTask::work(int t) {
+	if (t > 0 && !current->isFinished()) {
+		t = current->work(t);
+	}
+	// current->isFinished() || t == 0
+	// isFinished() <-> всички итерации са завършени
+	while (t > 0 && !isFinished()) {
+		reset();
+		SimpleTask::work(); // отбелязваме една завършена итерация
+		t = current->work(t);
+	}
+	// t == 0 || isFinished()
+	if (t == 0) {
+		// Времето е свършило изцяло
+		if (current->isFinished() && !isFinished()) {
+			SimpleTask::work();
+			if (!isFinished())
+				reset();
+		}
+	}
 	return t;
 }

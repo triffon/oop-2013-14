@@ -20,6 +20,8 @@ void work(Task** tasks, int n) {
 	int i = 0;
 	int t;
 	do {
+		cout << '[' << tasks[i]->getProgress() << '/' <<
+				tasks[i]->getLength() << "] ";
 		cout << "t? ";
 		cin >> t;
 		tasks[i]->work(t);

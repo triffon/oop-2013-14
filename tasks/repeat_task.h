@@ -16,6 +16,7 @@ private:
 	Task const* prototype;
 
 	// текущото копие на повтаряната задача
+	// инварианта: current->isFinished() <-> this->isFinished()
 	Task *current;
 
 	// интерпретираме progress като брой повторения до момента
@@ -28,13 +29,15 @@ public:
 
 	int getLength() const { return prototype->getLength() * length; }
 
-	int getProgress() const { return prototype->getProgress() + current->getProgress(); }
+	int getProgress() const;
 
 	int work(int = 1);
 
 	void print(ostream& = cout) const;
 
 	Cloneable* clone() const { return new RepeatTask(*this); }
+
+	bool isFinished() const { return SimpleTask::getLength() == SimpleTask::getProgress(); }
 };
 
 
