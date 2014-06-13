@@ -16,7 +16,6 @@ private:
 	Task const* prototype;
 
 	// текущото копие на повтаряната задача
-	// инварианта: current->isFinished() <-> this->isFinished()
 	Task *current;
 
 	// интерпретираме progress като брой повторения до момента

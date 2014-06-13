@@ -31,11 +31,11 @@ void RepeatTask::print(ostream& os) const {
 
 int RepeatTask::getProgress() const {
 	return SimpleTask::getProgress() * prototype->getLength() +
-			 (!isFinished() ? current->getProgress() : 0);
+			 current->getProgress();
 }
 
 int RepeatTask::work(int t) {
-	if (t > 0 && !current->isFinished()) {
+	if (t > 0 && !isFinished()) {
 		t = current->work(t);
 	}
 	// current->isFinished() || t == 0
@@ -46,13 +46,10 @@ int RepeatTask::work(int t) {
 		t = current->work(t);
 	}
 	// t == 0 || isFinished()
-	if (t == 0) {
+	if (t == 0 && current->isFinished()) {
 		// Времето е свършило изцяло
-		if (current->isFinished() && !isFinished()) {
-			SimpleTask::work();
-			if (!isFinished())
-				reset();
-		}
+		reset();
+		SimpleTask::work();
 	}
 	return t;
 }

@@ -36,7 +36,10 @@ int main() {
 	Task* tasks[N] = { new SimpleTask("събуждане", 2),
 					new SimpleTask("обличане", 4),
 					new QuickTask("излизане"),
-					new RepeatTask("пътуване с ГТ", 2, new SimpleTask("пътуване с автобус", 3)),
+					new RepeatTask("пътуване с ГТ", 2,
+							new RepeatTask("пътуване с ГТ", 2,
+									new RepeatTask("пътуване с ГТ", 2,
+											new SimpleTask("пътуване с автобус", 3)))),
 					new QuickTask("усмивка")};
 
 
