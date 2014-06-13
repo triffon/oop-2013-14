@@ -53,3 +53,31 @@ int RepeatTask::work(int t) {
 	}
 	return t;
 }
+
+RepeatTask::RepeatTask(RepeatTask const& rt) : SimpleTask(rt) {
+	copy(rt);
+}
+
+RepeatTask& RepeatTask::operator=(RepeatTask const& rt) {
+	if (this != &rt) {
+		SimpleTask::operator=(rt);
+		clean();
+		copy(rt);
+	}
+	return *this;
+}
+
+RepeatTask::~RepeatTask() {
+	clean();
+}
+
+void RepeatTask::copy(RepeatTask const& rt) {
+	// споделяме prototype
+	prototype = rt.prototype;
+	// копираме current
+	current = (Task*)rt.current->clone();
+}
+
+void RepeatTask::clean() {
+	delete current;
+}

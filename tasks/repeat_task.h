@@ -26,6 +26,11 @@ public:
 
 	RepeatTask(char const*, int, Task const*);
 
+	// голяма тройка
+	RepeatTask(RepeatTask const&);
+	RepeatTask& operator=(RepeatTask const&);
+	~RepeatTask();
+
 	int getLength() const { return prototype->getLength() * length; }
 
 	int getProgress() const;
@@ -37,6 +42,10 @@ public:
 	Cloneable* clone() const { return new RepeatTask(*this); }
 
 	bool isFinished() const { return SimpleTask::getLength() == SimpleTask::getProgress(); }
+
+private:
+	void copy(RepeatTask const&);
+	void clean();
 };
 
 
